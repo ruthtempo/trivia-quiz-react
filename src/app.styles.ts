@@ -15,7 +15,7 @@ body{
 }
 
 *{
-  font-family:'Catamaran', sans-serif;
+  font-family:'Roboto', sans-serif;
   box-sizing:border-box;
 }
 `
@@ -33,14 +33,24 @@ align-items:center;
 }
 
 .score{
-  color:black;
-  font-size:2rem;
-  margin:0;
+  font-family: Roboto;
+  background-image: linear-gradient(180deg, lightcoral, lightpink);
+  font-weight: 400;
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  filter: drop-shadow(2px 2px white);
+  font-size: 40px;
+  text-align: center;
+  margin: 10px;
 }
 
-h1 {
-  font-family: Fascinate Inline;
-  background-image: linear-gradient(180deg, mediumorchid, lightpink);
+h1{
+  font-family: Roboto;
+  background-image: linear-gradient(180deg, lightcoral, lightpink);
   font-weight: 400;
   background-size: 100%;
   background-clip: text;
@@ -51,7 +61,8 @@ h1 {
   filter: drop-shadow(2px 2px white);
   font-size: 70px;
   text-align: center;
-  margin: 20px;
+  margin-top: 20px;
+  margin-bottom:10px;
 }
 .start, .next {
   cursor: pointer;
@@ -63,6 +74,19 @@ h1 {
   max-width: 200px;
 }
 
+.number{
+  font-size:30px;
+  background-image: linear-gradient(180deg, lightcoral, lightpink);
+  font-weight: 400;
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  filter: drop-shadow(2px 2px white);
+}
+
 .button{
   margin:5px;
 }
@@ -72,16 +96,35 @@ div{
   flex-direction:column;
   justify-content:center;
   align-items:center;
+  min-width:300px;
+  max-width:400px;
+  border-radius:10px;
+  padding:8px;
+  margin-bottom:10px;
+  color:CornflowerBlue;
 }
 
 img{
   border-radius:10px;
+  border-style:solid;
+  border-color: lightpink;
+  border-width:2px;
 }
 .over{
-  font-family: Fascinate Inline;
-  padding:25px;
-  color:red;
-  font-size:40px;
+  font-weight: 400;
+  font-family: Roboto;
+  background-image: linear-gradient(180deg, firebrick, lightcoral);
+  font-weight: 400;
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  filter: drop-shadow(2px 2px white);
+  font-size: 40px;
+  text-align: center;
+  margin: 10px;
 }
 `
 

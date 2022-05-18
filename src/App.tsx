@@ -4,13 +4,12 @@ import { fetchQuizQuestions } from './components/Api';
 import QuestionCard from './components/QuestionCard';
 //types
 import { QuestionsState, Difficulty } from './components/Api'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from 'react-bootstrap/Container'
-import Button from 'react-bootstrap/Button'
-
 
 
 //styles
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './scss/custom.scss'
+import Button from 'react-bootstrap/Button'
 import { GlobalStyle } from './app.styles';
 import { Wrapper } from './app.styles';
 
@@ -30,7 +29,7 @@ function App() {
   const [userAnswers, setUserAnswers] = useState<AnswerObject[]>([]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
-  const [imageUrl, setImageUrl] = useState('https://picsum.photos/200')
+  const [imageUrl, setImageUrl] = useState('https://picsum.photos/380/200')
   const [random, setRandom] = useState(0)
   // console.log(fetchQuizQuestions(TOTAL_QUESTIONS, Difficulty.EASY))
   const getRandom = () => {
@@ -76,7 +75,7 @@ function App() {
   const nextQuestion = () => {
     // move on to the next question if its not the last question
     const nextQuestion = number + 1;
-    setImageUrl(`https://picsum.photos/id/${random}/200`)
+    setImageUrl(`https://picsum.photos/id/${random}/400/200`)
 
     if (nextQuestion === TOTAL_QUESTIONS) {
       setGameOver(true);
@@ -90,16 +89,15 @@ function App() {
       < Wrapper className='App' >
         <h1> Trivia Quiz</h1>
         { }
-
-        {userAnswers.length === TOTAL_QUESTIONS ? <h5 className="over"> GAME OVER</h5> : null}
         {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
-          <Button variant="primary" className="start" onClick={startTrivia}>Start</Button>
+          <Button variant="primary" className="start text-info" onClick={startTrivia}>New Game</Button>
         ) : null
         }
+        {userAnswers.length === TOTAL_QUESTIONS ? <h5 className="over"> GAME OVER</h5> : null}
         {!gameOver ? <h5 className='score'>Score: {score}</h5> : null}
-        <img src={imageUrl} alt="pic" />
+        {!gameOver && userAnswers.length !== TOTAL_QUESTIONS ? <img src={imageUrl} alt="pic" /> : null}
         {loading && <p>Loading questions...</p>}
-        {!loading && !gameOver && (
+        {!loading && !gameOver && userAnswers.length !== TOTAL_QUESTIONS && (
           < QuestionCard
             questionNr={number + 1}
             totalQuestions={TOTAL_QUESTIONS}
@@ -109,7 +107,7 @@ function App() {
             callback={checkAnswer} />
         )}
         {!gameOver && !loading && userAnswers.length === number + 1 && number !== TOTAL_QUESTIONS - 1 ? (
-          <Button className='next' onClick={() => { nextQuestion(); getRandom() }}>Next Question</Button>
+          <Button variant="primary" className='next text-info' onClick={() => { nextQuestion(); getRandom() }}>Next Question</Button>
         ) : null}
 
       </ Wrapper>
